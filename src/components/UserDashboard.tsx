@@ -14,7 +14,8 @@ import {
   Plus,
   PhoneCall,
   Download,
-  AlertCircle
+  AlertCircle,
+  RotateCw
 } from 'lucide-react';
 
 interface UserDashboardProps {
@@ -24,6 +25,7 @@ interface UserDashboardProps {
   onInspectDish: (dishId: string) => void;
   wishlist: string[];
   onToggleWishlist: (dishId: string) => void;
+  onOpen3DStudio?: (dishId: string) => void;
 }
 
 export const UserDashboard: React.FC<UserDashboardProps> = ({
@@ -33,6 +35,7 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
   onInspectDish,
   wishlist,
   onToggleWishlist,
+  onOpen3DStudio,
 }) => {
   const [activeTab, setActiveTab] = useState<'reservations' | 'passport' | 'dietary' | 'wishlist'>('reservations');
 
@@ -94,8 +97,8 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
               </span>
             </div>
             <div className="text-[10px] font-mono tracking-widest text-[#A69D90] bg-[#191816] px-3.5 py-1.5 border border-[#2A2723] rounded-[2px] flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C18A65]" />
-              <span>Connoisseur Patron Member #EO-HYD-9842</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>Complimentary Patron Access • 100% Free Privileges</span>
             </div>
           </div>
 
@@ -105,17 +108,17 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
                 Welcome, <span className="italic font-normal text-[#C18A65]">H. Renuka</span>
               </h1>
               <p className="mt-3 text-sm text-[#A69D90] max-w-xl font-light">
-                Manage upcoming dining reservations, view your cellar degustation notes, and configure personal dietary protocols with our executive culinary team.
+                Manage upcoming complimentary dining reservations, view your cellar degustation notes, and configure personal dietary protocols with our executive culinary team.
               </p>
             </div>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={onOpenNewReservation}
-                className="btn-copper px-6 py-3 text-[11px] uppercase tracking-widest font-mono flex items-center gap-2 cursor-pointer"
+                className="btn-copper px-6 py-3 text-[11px] uppercase tracking-widest font-mono flex items-center gap-2 cursor-pointer shadow-md"
               >
                 <Plus className="w-3.5 h-3.5" />
-                <span>New Table Reservation</span>
+                <span>Reserve Free Table</span>
               </button>
             </div>
           </div>
@@ -330,13 +333,23 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
                     "{entry.tastingNotes}"
                   </p>
 
-                  <div className="pt-2">
+                  <div className="pt-2 flex items-center justify-between">
                     <button
                       onClick={() => onInspectDish(entry.dishId)}
                       className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65] hover:text-[#F0E8DC] cursor-pointer"
                     >
-                      Revisit Botanical Archive →
+                      Botanical Archive →
                     </button>
+                    {onOpen3DStudio && (
+                      <button
+                        onClick={() => onOpen3DStudio(entry.dishId)}
+                        className="text-[10px] uppercase font-mono tracking-wider text-[#A69D90] hover:text-[#C18A65] flex items-center gap-1 cursor-pointer"
+                        title="Rotate in 360° 3D"
+                      >
+                        <RotateCw className="w-3 h-3 text-[#C18A65]" />
+                        <span>360° 3D</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -456,12 +469,24 @@ export const UserDashboard: React.FC<UserDashboardProps> = ({
                       <span className="text-xs font-semibold text-[#F0E8DC] font-mono">
                         {dish.priceFormatted}
                       </span>
-                      <button
-                        onClick={() => onInspectDish(dish.id)}
-                        className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65] hover:text-[#F0E8DC] cursor-pointer"
-                      >
-                        Inspect Dossier →
-                      </button>
+                      <div className="flex items-center gap-2">
+                        {onOpen3DStudio && (
+                          <button
+                            onClick={() => onOpen3DStudio(dish.id)}
+                            className="text-[10px] uppercase font-mono tracking-wider text-[#A69D90] hover:text-[#C18A65] flex items-center gap-1 cursor-pointer"
+                            title="Rotate in 360° 3D"
+                          >
+                            <RotateCw className="w-3 h-3 text-[#C18A65]" />
+                            <span>360°</span>
+                          </button>
+                        )}
+                        <button
+                          onClick={() => onInspectDish(dish.id)}
+                          className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65] hover:text-[#F0E8DC] cursor-pointer"
+                        >
+                          Dossier →
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}

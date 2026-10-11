@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Dish } from '../types';
 import { DISHES_DATABASE, PROGRESSION_COURSES } from '../data/culinaryData';
-import { Check, Info, Flame, Wine, ShieldCheck, Heart } from 'lucide-react';
+import { Check, Info, Flame, Wine, ShieldCheck, Heart, RotateCw, Video } from 'lucide-react';
 
 interface CulinaryAnthologyProps {
   initialDishId?: string;
@@ -9,6 +9,7 @@ interface CulinaryAnthologyProps {
   onOpenDietaryModal: () => void;
   onToggleWishlist?: (dishId: string) => void;
   wishlist?: string[];
+  onOpen3DStudio?: (dishId: string) => void;
 }
 
 export const CulinaryAnthology: React.FC<CulinaryAnthologyProps> = ({
@@ -17,6 +18,7 @@ export const CulinaryAnthology: React.FC<CulinaryAnthologyProps> = ({
   onOpenDietaryModal,
   onToggleWishlist,
   wishlist = [],
+  onOpen3DStudio,
 }) => {
   const [selectedDishId, setSelectedDishId] = useState<string>(initialDishId);
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
@@ -421,6 +423,18 @@ export const CulinaryAnthology: React.FC<CulinaryAnthologyProps> = ({
                 />
               </div>
 
+              {/* Floating 360 3D Button on Image */}
+              {onOpen3DStudio && (
+                <button
+                  onClick={() => onOpen3DStudio(activeDish.id)}
+                  className="absolute top-3 right-3 bg-black/75 hover:bg-[#C18A65] text-white hover:text-black border border-[#C18A65] px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md transition-all shadow-lg"
+                  title="Rotate camera 360° in 3D Studio"
+                >
+                  <RotateCw className="w-3 h-3 text-[#C18A65] group-hover:text-black" />
+                  <span>360° 3D View</span>
+                </button>
+              )}
+
               {/* Bottom Plating Legend Overlay */}
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#121210] via-[#121210]/85 to-transparent p-4 flex items-end justify-between">
                 <div className="text-[11px] text-[#F0E8DC] max-w-md font-light">
@@ -517,7 +531,17 @@ export const CulinaryAnthology: React.FC<CulinaryAnthologyProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-3 w-full sm:w-auto mt-2 sm:mt-0">
+              <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mt-2 sm:mt-0">
+                {onOpen3DStudio && (
+                  <button
+                    onClick={() => onOpen3DStudio(activeDish.id)}
+                    className="flex-1 sm:flex-none px-4 py-3 bg-[#1C1A18] hover:bg-[#2A2723] text-[#C18A65] border border-[#C18A65] text-[11px] font-semibold tracking-widest uppercase rounded-[2px] transition-colors duration-200 cursor-pointer font-mono flex items-center justify-center gap-1.5"
+                    title="Rotate camera 360° around this food in 3D"
+                  >
+                    <RotateCw className="w-3.5 h-3.5" />
+                    <span>360° 3D Camera</span>
+                  </button>
+                )}
                 <button
                   onClick={handleOrderInquire}
                   className="flex-1 sm:flex-none px-5 py-3 bg-[#A96947] hover:bg-[#C18A65] text-[#121210] text-[11px] font-semibold tracking-widest uppercase rounded-[2px] transition-colors duration-200 cursor-pointer font-mono"

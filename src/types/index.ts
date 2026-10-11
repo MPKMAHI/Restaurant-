@@ -1,4 +1,4 @@
-export type PageView = 'home' | 'menu' | 'experiences' | 'story' | 'dashboard' | 'arrival';
+export type PageView = 'home' | 'menu' | 'experiences' | 'story' | 'dashboard' | 'arrival' | 'studio3d';
 
 export interface IngredientItem {
   name: string;

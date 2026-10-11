@@ -50,6 +50,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenReservation })
             </li>
             <li>
               <button
+                onClick={() => onNavigate('studio3d')}
+                className="hover:text-[#F0E8DC] text-[#C18A65] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+              >
+                <span>360° 3D Food Studio</span>
+                <span className="px-1 py-0.2 bg-[#C18A65]/20 text-[#C18A65] text-[9px] font-mono rounded">
+                  360°
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => onNavigate('experiences')}
                 className="hover:text-[#F0E8DC] transition-colors cursor-pointer text-left"
               >

@@ -69,28 +69,31 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </button>
 
-        {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-9 xl:gap-11 text-[11px] uppercase tracking-[0.18em] text-[#E5DDD1] font-medium">
-          <button
-            onClick={() => onNavigate('home')}
-            className={`py-1 relative transition-colors duration-200 cursor-pointer ${
-              currentPage === 'home' ? 'text-[#F0E8DC]' : 'hover:text-[#C18A65]'
-            }`}
-          >
-            Our Story
-            {currentPage === 'home' && (
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#C18A65]" />
-            )}
-          </button>
-
+        {/* Center Desktop Navigation - Sleek & Uncluttered */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[11px] uppercase tracking-[0.16em] text-[#E5DDD1] font-medium">
           <button
             onClick={() => onNavigate('menu')}
             className={`py-1 relative transition-colors duration-200 cursor-pointer ${
               currentPage === 'menu' ? 'text-[#F0E8DC]' : 'hover:text-[#C18A65]'
             }`}
           >
-            Menu &amp; Anthology
+            Menu
             {currentPage === 'menu' && (
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#C18A65]" />
+            )}
+          </button>
+
+          <button
+            onClick={() => onNavigate('studio3d')}
+            className={`py-1 relative transition-colors duration-200 cursor-pointer flex items-center gap-1.5 ${
+              currentPage === 'studio3d' ? 'text-[#F0E8DC]' : 'hover:text-[#C18A65]'
+            }`}
+          >
+            <span>360° 3D Studio</span>
+            <span className="px-1.5 py-0.2 bg-[#C18A65]/20 text-[#C18A65] text-[8px] font-mono rounded border border-[#C18A65]/40 uppercase tracking-tighter">
+              360°
+            </span>
+            {currentPage === 'studio3d' && (
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#C18A65]" />
             )}
           </button>
@@ -125,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({
               currentPage === 'story' ? 'text-[#F0E8DC]' : 'hover:text-[#C18A65]'
             }`}
           >
-            Philosophy
+            Story
             {currentPage === 'story' && (
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#C18A65]" />
             )}
@@ -137,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
               currentPage === 'dashboard' ? 'text-[#F0E8DC]' : 'hover:text-[#C18A65]'
             }`}
           >
-            <span>Guest Portal</span>
+            <span>Guest Pass</span>
             {reservationCount > 0 && (
               <span className="w-4 h-4 rounded-full bg-[#A96947] text-[#111110] font-mono text-[9px] font-bold flex items-center justify-center">
                 {reservationCount}
@@ -149,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Right CTA Area */}
+        {/* Right CTA Area - Free Booking Highlight */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => onNavigate('dashboard')}
@@ -161,9 +164,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenReservation}
-            className="btn-primary-ivory inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-[0.16em] cursor-pointer"
+            className="btn-primary-ivory inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 text-[11px] uppercase tracking-[0.14em] cursor-pointer shadow-md"
           >
-            <span>Reserve a Table</span>
+            <span>Reserve Free</span>
             <span className="text-xs leading-none font-mono">→</span>
           </button>
 
@@ -225,6 +228,20 @@ export const Header: React.FC<HeaderProps> = ({
               }`}
             >
               Map &amp; Spatial Arrival (Jubilee Hills)
+            </button>
+            <button
+              onClick={() => {
+                onNavigate('studio3d');
+                setMobileMenuOpen(false);
+              }}
+              className={`text-left py-2 border-b border-[#2A2723]/60 flex items-center justify-between ${
+                currentPage === 'studio3d' ? 'text-[#C18A65] font-semibold' : ''
+              }`}
+            >
+              <span>360° 3D Food Studio &amp; Camera</span>
+              <span className="px-1.5 py-0.5 rounded bg-[#C18A65]/20 text-[#C18A65] text-[9px] font-mono">
+                360°
+              </span>
             </button>
             <button
               onClick={() => {

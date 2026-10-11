@@ -130,18 +130,18 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
         ) : (
           /* Booking Form */
           <div>
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C18A65]" />
-                <span className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65]">
-                  Tables &amp; Private Enclaves
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-[#1C1A18] border border-[#39342E]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C18A65]" />
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65] font-semibold">
+                  100% Free Table Reservation • Zero Booking Fee
                 </span>
               </div>
               <h2 className="font-serif-lux text-3xl sm:text-4xl text-[#F0E8DC]">
                 Reserve Your Experience
               </h2>
               <p className="text-xs text-[#A69D90] mt-1 font-light">
-                Direct concierge line: +91 (040) 2345 6789
+                No credit card or advance deposit required. Direct concierge line: +91 (040) 2345 6789
               </p>
             </div>
 
@@ -278,10 +278,13 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="btn-copper w-full py-4 text-xs uppercase tracking-widest font-mono cursor-pointer"
+                  className="btn-copper w-full py-4 text-xs uppercase tracking-widest font-mono cursor-pointer shadow-lg"
                 >
-                  Confirm Table Request →
+                  Confirm Free Table Reservation (Zero Fee) →
                 </button>
+                <p className="text-[10px] text-center text-[#A69D90] font-mono mt-2">
+                  Complimentary chef's welcome drink upon arrival • 1-Click free cancellation
+                </p>
               </div>
             </form>
           </div>

@@ -514,9 +514,9 @@ export const MapAndArrival: React.FC<MapAndArrivalProps> = ({ onOpenReservation 
                 <div className="pt-2">
                   <button
                     onClick={onOpenReservation}
-                    className="btn-copper w-full py-3.5 text-xs uppercase tracking-widest font-mono cursor-pointer"
+                    className="btn-copper w-full py-3.5 text-xs uppercase tracking-widest font-mono cursor-pointer shadow-md"
                   >
-                    Reserve Table with Valet Access →
+                    Reserve Free Table (Complimentary Valet Included) →
                   </button>
                 </div>
               )}

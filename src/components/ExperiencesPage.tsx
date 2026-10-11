@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Wine, Flame, Users, Sparkles, Volume2, VolumeX, ShieldCheck } from 'lucide-react';
+import { InteractiveChefsTableTour } from './InteractiveChefsTableTour';
 
 interface ExperiencesPageProps {
   onOpenReservationWithEnclave: (enclave: string) => void;
@@ -180,8 +181,17 @@ export const ExperiencesPage: React.FC<ExperiencesPageProps> = ({
         </div>
       </section>
 
+      {/* Featured Virtual Tour: Interactive Chef's Table & Live-Fire Stations */}
+      <section className="py-16 px-6 lg:px-12 xl:px-20 max-w-[1440px] mx-auto">
+        <InteractiveChefsTableTour
+          onReserveCounter={() =>
+            onOpenReservationWithEnclave("Chef Vikramaditya’s Counter (6 Seats)")
+          }
+        />
+      </section>
+
       {/* Enclaves Showcase */}
-      <section className="py-20 px-6 lg:px-12 xl:px-20 max-w-[1440px] mx-auto space-y-20">
+      <section className="py-16 px-6 lg:px-12 xl:px-20 max-w-[1440px] mx-auto space-y-20">
         {ENCLAVES.map((enclave, idx) => (
           <div
             key={enclave.id}

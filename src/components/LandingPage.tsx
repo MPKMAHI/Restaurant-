@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageView } from '../types';
-import { Sparkles, Wine, Flame, Clock, Users, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Wine, Flame, Clock, Users, ArrowUpRight, Video, RotateCw } from 'lucide-react';
+import { ThreeFoodStudio } from './ThreeFoodStudio';
 
 interface LandingPageProps {
   onNavigate: (page: PageView, dishId?: string) => void;
@@ -59,7 +60,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
         {/* Hero Main Copy */}
         <div className="relative z-10 max-w-4xl my-auto pt-8 md:pt-14 pb-12">
-          <div className="inline-flex items-center gap-3.5 mb-6">
+          {/* Free Guarantee Pill */}
+          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#39342E] backdrop-blur-sm shadow-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[10px] tracking-[0.18em] uppercase text-[#E5DDD1] font-mono font-medium">
+              100% Free Reservations • Zero Deposit Required • Free Cancellation
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3.5 mb-6">
             <span className="w-6 h-[1px] bg-[#C18A65]" />
             <span className="text-[10px] tracking-[0.24em] uppercase text-[#C18A65] font-semibold font-mono">
               Contemporary Dining · Est. 2021
@@ -72,7 +81,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </h1>
 
           <p className="text-base sm:text-[17px] text-[#C4BDB2] font-light max-w-2xl leading-relaxed mb-10 tracking-wide">
-            An extraordinary meeting of fire, flavour and imagination. Discover a dining experience crafted to linger in your memory.
+            An extraordinary meeting of fire, flavour and imagination. Experience Michelin-caliber fine dining with complimentary table reservation.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 pt-1">
@@ -80,7 +89,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               onClick={handleQuickReserve}
               className="btn-primary-ivory inline-flex items-center justify-center gap-3 px-7 py-3.5 text-[11px] uppercase tracking-[0.18em] cursor-pointer"
             >
-              <span>Reserve Your Table</span>
+              <span>Reserve Free Table</span>
               <span className="text-xs leading-none font-mono">→</span>
             </button>
 
@@ -297,13 +306,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C18A65]" />
                     <span>Pairing: Vintage Amarone della Valpolicella</span>
                   </div>
-                  <button
-                    onClick={() => onNavigate('menu', 'biryani-safran')}
-                    className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px]"
-                  >
-                    <span>Inquire</span>
-                    <span>→</span>
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => onNavigate('studio3d', 'biryani-safran')}
+                      className="text-[#E5E0D8] hover:text-[#C18A65] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px] px-2.5 py-1 rounded bg-[#2A2723]/60 border border-[#39342E]"
+                      title="Rotate this dish in 360° 3D"
+                    >
+                      <RotateCw className="w-3 h-3 text-[#C18A65]" />
+                      <span>360° 3D</span>
+                    </button>
+                    <button
+                      onClick={() => onNavigate('menu', 'biryani-safran')}
+                      className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px]"
+                    >
+                      <span>Inquire</span>
+                      <span>→</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -341,13 +360,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   </p>
                   <div className="pt-4 border-t border-[#39342E] flex items-center justify-between text-[11px] tracking-wider uppercase text-[#A69D90]">
                     <span>Pairing: Sancerre Blanc 2020</span>
-                    <button
-                      onClick={() => onNavigate('menu', 'paneer-tikka')}
-                      className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono"
-                    >
-                      <span>Details</span>
-                      <span>→</span>
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => onNavigate('studio3d', 'paneer-tikka')}
+                        className="text-[#E5E0D8] hover:text-[#C18A65] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded bg-[#2A2723]/60 border border-[#39342E]"
+                        title="Rotate in 360°"
+                      >
+                        <RotateCw className="w-2.5 h-2.5 text-[#C18A65]" />
+                        <span>360°</span>
+                      </button>
+                      <button
+                        onClick={() => onNavigate('menu', 'paneer-tikka')}
+                        className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono"
+                      >
+                        <span>Details</span>
+                        <span>→</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -383,13 +412,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   </p>
                   <div className="pt-4 border-t border-[#39342E] flex items-center justify-between text-[11px] tracking-wider uppercase text-[#A69D90]">
                     <span>Pairing: 20-Year Tawny Port</span>
-                    <button
-                      onClick={() => onNavigate('menu', 'chocolate-fondant')}
-                      className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono"
-                    >
-                      <span>Details</span>
-                      <span>→</span>
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => onNavigate('studio3d', 'chocolate-fondant')}
+                        className="text-[#E5E0D8] hover:text-[#C18A65] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded bg-[#2A2723]/60 border border-[#39342E]"
+                        title="Rotate in 360°"
+                      >
+                        <RotateCw className="w-2.5 h-2.5 text-[#C18A65]" />
+                        <span>360°</span>
+                      </button>
+                      <button
+                        onClick={() => onNavigate('menu', 'chocolate-fondant')}
+                        className="text-[#C18A65] hover:text-[#F0E8DC] transition-colors cursor-pointer flex items-center gap-1 font-mono"
+                      >
+                        <span>Details</span>
+                        <span>→</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -408,6 +447,52 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <p className="text-[#A69D90] text-xs mt-3 uppercase tracking-[0.16em] font-mono">
               A la Carte &amp; 9-Course Sommelier Degustation Available
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          SECTION: THE 360° CULINARY CINEMA (Interactive 3D Turntable)
+          ======================================================== */}
+      <section
+        id="cinema-360"
+        className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[#0E0D0C] border-t border-[#39342E]"
+      >
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 pb-6 border-b border-[#2A2723]">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1917] border border-[#2A2723] mb-4">
+                <Video className="w-3.5 h-3.5 text-[#C18A65]" />
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#C18A65] font-semibold">
+                  360° Turntable Cinema • 3D Food Experience
+                </span>
+              </div>
+              <h2 className="font-serif-lux text-3xl sm:text-5xl lg:text-6xl text-[#F0E8DC] font-light">
+                Inspect Every Angle. <br />
+                <span className="italic font-normal text-[#C18A65]">Rotate in 360° 3D.</span>
+              </h2>
+            </div>
+            <div className="mt-6 lg:mt-0 max-w-md">
+              <p className="text-[#A69D90] text-sm font-light leading-relaxed mb-4">
+                Experience our signature gastronomy from an orbital camera perspective. Adjust camera elevation, zoom into the sear, and inspect rising steam dynamics in real-time.
+              </p>
+              <button
+                onClick={() => onNavigate('studio3d')}
+                className="btn-primary-ivory inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-[0.16em]"
+              >
+                <span>Launch Full 3D Studio</span>
+                <span className="font-mono">→</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Embedded 3D Studio Component */}
+          <div className="rounded-2xl overflow-hidden border border-[#2A2723] shadow-2xl bg-[#0E0D0C]">
+            <ThreeFoodStudio
+              initialDishId="biryani-safran"
+              onOpenReservation={() => onNavigate('dashboard')}
+              onExploreAnthology={(dishId) => onNavigate('menu', dishId)}
+            />
           </div>
         </div>
       </section>
@@ -558,11 +643,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
             <button
               onClick={handleQuickReserve}
-              className="btn-copper w-full inline-flex items-center justify-center gap-3 py-4 px-8 text-[12px] uppercase tracking-[0.16em] cursor-pointer"
+              className="btn-copper w-full inline-flex items-center justify-center gap-3 py-4 px-8 text-[12px] uppercase tracking-[0.16em] cursor-pointer shadow-lg"
             >
-              <span>Reserve Your Experience</span>
+              <span>Reserve Free Table (Zero Deposit)</span>
               <span className="text-xs leading-none font-mono">→</span>
             </button>
+            <p className="text-[10px] text-center text-[#A69D90] font-mono mt-2.5">
+              100% Free Table Hold • Complimentary Chef's Tasting Amuse-Bouche • No Cancellation Fees
+            </p>
           </div>
 
           <div className="text-xs text-[#A69D90] space-y-1.5">

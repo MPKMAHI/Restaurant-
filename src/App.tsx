@@ -9,6 +9,7 @@ import { ExperiencesPage } from './components/ExperiencesPage';
 import { OurStoryPage } from './components/OurStoryPage';
 import { UserDashboard } from './components/UserDashboard';
 import { MapAndArrival } from './components/MapAndArrival';
+import { ThreeDViewPage } from './components/ThreeDViewPage';
 import { ReservationModal } from './components/ReservationModal';
 import { DietaryMatrixModal } from './components/DietaryMatrixModal';
 import { Footer } from './components/Footer';
@@ -147,6 +148,18 @@ export default function App() {
                 onOpenDietaryModal={() => setIsDietaryModalOpen(true)}
                 onToggleWishlist={handleToggleWishlist}
                 wishlist={wishlist}
+                onOpen3DStudio={(dishId) => handleNavigate('studio3d', dishId)}
+              />
+            )}
+
+            {currentPage === 'studio3d' && (
+              <ThreeDViewPage
+                initialDishId={targetDishId}
+                onNavigate={handleNavigate}
+                onOpenReservation={() => {
+                  setReservationModalDetails({});
+                  setIsReservationOpen(true);
+                }}
               />
             )}
 
@@ -177,6 +190,7 @@ export default function App() {
                 onInspectDish={(dishId) => handleNavigate('menu', dishId)}
                 wishlist={wishlist}
                 onToggleWishlist={handleToggleWishlist}
+                onOpen3DStudio={(dishId) => handleNavigate('studio3d', dishId)}
               />
             )}
           </motion.div>
