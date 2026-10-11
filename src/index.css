@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --c-obsidian: #111110;
+    --c-charcoal: #181716;
+    --c-surface: #191816;
+    --c-surface-dim: #141312;
+    --c-border: #2A2723;
+    --c-hairline: #39342E;
+    --c-copper: #C18A65;
+    --c-copper-deep: #A96947;
+    --c-gold: #C5A46D;
+    --c-ivory: #F0E8DC;
+    --c-ivory-cta: #E9E0D2;
+    --c-muted: #A69D90;
+    --c-body: #C4BDB2;
+  }
+
+  body {
+    background-color: #111110;
+    color: #C4BDB2;
+    font-family: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-lux {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom Luxury Gradients & Accents */
+.hero-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 17, 16, 0.45) 0%,
+    rgba(17, 17, 16, 0.15) 30%,
+    rgba(17, 17, 16, 0.65) 70%,
+    rgba(17, 17, 16, 0.98) 95%,
+    #111110 100%
+  );
+}
+
+.hero-side-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 16, 0.88) 0%,
+    rgba(17, 17, 16, 0.5) 45%,
+    rgba(17, 17, 16, 0.1) 85%
+  );
+}
+
+.copper-shimmer {
+  background: linear-gradient(135deg, rgba(193, 138, 101, 0.12) 0%, rgba(169, 105, 71, 0.03) 100%);
+}
+
+.glow-copper {
+  box-shadow: 0 0 45px -10px rgba(184, 115, 79, 0.25);
+}
+
+.glow-gold {
+  box-shadow: 0 0 50px -12px rgba(197, 164, 109, 0.2);
+}
+
+/* Luxury Buttons */
+.btn-primary-ivory {
+  background-color: #E9E0D2;
+  color: #171613;
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+.btn-primary-ivory:hover {
+  background-color: #C18A65;
+  color: #121210;
+  box-shadow: 0 0 25px rgba(193, 138, 101, 0.3);
+}
+
+.btn-secondary-line {
+  background: transparent;
+  color: #E9E0D2;
+  border: 1px solid rgba(233, 224, 210, 0.35);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+}
+.btn-secondary-line:hover {
+  background-color: rgba(233, 224, 210, 0.08);
+  color: #F0E8DC;
+  border-color: #C18A65;
+}
+
+.btn-copper {
+  background-color: #A96947;
+  color: #F0E8DC;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+.btn-copper:hover {
+  background-color: #C18A65;
+  color: #111110;
+  box-shadow: 0 0 30px rgba(169, 105, 71, 0.35);
+}
+
+/* Hairline scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #111110;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2723;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C18A65;
+}

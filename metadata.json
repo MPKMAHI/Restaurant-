@@ -1,0 +1,6 @@
+{
+  "name": "Ember & Oak — Contemporary Fine Dining & Culinary Anthology",
+  "description": "Haute gastronomy and live fire dining experience in Hyderabad. Explore our culinary anthology, ingredient dossiers, curated degustation menus, and table reservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
